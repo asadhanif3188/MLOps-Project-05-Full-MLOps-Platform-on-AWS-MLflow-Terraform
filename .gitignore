@@ -1,0 +1,144 @@
+###############################################
+#  GLOBAL IGNORE RULES
+###############################################
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.pickle
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+*.out
+
+###############################################
+#  TERRAFORM
+###############################################
+
+# Local Terraform state
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+
+# Local crash logs
+crash.log
+crash.*.log
+
+# Sensitive terraform variable files
+*.tfvars
+*.tfvars.json
+secret.auto.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Terraform working directory
+.terraform/
+.terraform.lock.hcl
+
+###############################################
+#  AWS / CREDENTIALS
+###############################################
+
+# AWS credentials (never commit)
+.aws/
+credentials
+config
+
+# kube config files
+.kube/
+*.kubeconfig
+
+###############################################
+#  DOCKER
+###############################################
+
+# Docker build artifacts
+*.tar
+*.img
+*.dockerfile.bak
+
+# Docker Compose override files
+docker-compose.override.yml
+
+###############################################
+#  MLflow
+###############################################
+
+# Local MLflow runs directory
+mlruns/
+mlflow.db
+mlflow.yml
+
+# MLflow artifacts locally
+artifacts/
+ml-artifacts/
+
+###############################################
+#  PROJECT SPECIFIC
+###############################################
+
+# Build directories
+build/
+dist/
+*.egg-info/
+**/*.egg-info
+
+# Helm chart temporary
+charts/**/tmp/
+charts/**/charts/
+charts/**/Chart.lock
+
+# Node_modules (if you add frontend dashboards later)
+node_modules/
+
+# Data files (local only)
+data/
+datasets/
+*.csv
+*.parquet
+
+# Training outputs (local)
+output/
+outputs/
+results/
+
+# Compiled binaries
+*.so
+*.dll
+*.dylib
+
+###############################################
+#  OTHER OPTIONAL IGNORE RULES
+###############################################
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
