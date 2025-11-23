@@ -123,3 +123,26 @@ full-mlops-platform-aws-mlflow-terraform/
 - GitHub repository with OIDC → AWS role configured
 - Domain + Route53 (for pretty MLflow & API URLs)
 
+## 5. CI/CD
+- `infra-ci.yml`:
+    - On push: Terraform fmt/validate/plan
+    - Manual approval → apply
+- `app-ci.yml`:
+        - On push to main: build + push Docker, deploy to EKS
+
+## 6. Observability
+- Logs: CloudWatch (`/aws/mlops/*`, Container Insights)
+- Alarms:
+    - ALB 5xx
+    - GPU node CPU
+
+## 7. Security & Cost
+- IRSA for MLflow, inference API, and CronJobs
+- Separate dev vs prod envs
+- GPU node autoscaling, small RDS in dev, log retention
+
+## 8. Future Improvements
+- Use PyTorch/TensorFlow GPU models
+- Add feature store (Feast, etc.)
+- Add Argo Workflows / Airflow for orchestration
+- Add Argo Rollouts for automated canary deployment
