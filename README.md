@@ -60,3 +60,66 @@ This project implements a production-style MLOps platform on AWS:
 
 ```
 
+## 3. Repository Structure
+
+```text
+full-mlops-platform-aws-mlflow-terraform/
+├─ infra/
+│  ├─ terraform/
+│  │  ├─ envs/
+│  │  │  ├─ dev/
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ backend.tf
+│  │  │  │  └─ terraform.tfvars
+│  │  │  └─ prod/
+│  │  │     ├─ main.tf
+│  │  │     ├─ variables.tf
+│  │  │     ├─ backend.tf
+│  │  │     └─ terraform.tfvars
+│  │  ├─ modules/
+│  │  │  ├─ vpc/
+│  │  │  ├─ eks/
+│  │  │  ├─ node_group/       # optional if you want custom mgmt
+│  │  │  ├─ s3/
+│  │  │  ├─ rds/
+│  │  │  ├─ ecr/
+│  │  │  ├─ cloudwatch/
+│  │  │  └─ iam/
+│  └─ helm/
+│     ├─ mlflow/
+│     └─ inference-api/
+│
+├─ mlops/
+│  ├─ mlflow/
+│  │  ├─ config/
+│  │  └─ bootstrap_scripts/
+│  ├─ pipelines/
+│  │  ├─ training/
+│  │  └─ evaluation/
+│  └─ utils/
+│
+├─ services/
+│  ├─ inference-api/
+│  │  ├─ app/
+│  │  │  ├─ main.py
+│  │  │  └─ model_loader.py
+│  │  ├─ Dockerfile
+│  │  └─ requirements.txt
+│  └─ batch-jobs/
+│     ├─ train/
+│     └─ feature-gen/
+│
+└─ .github/
+   └─ workflows/
+      ├─ infra-ci.yml
+      └─ app-ci.yml
+```
+
+## 4. Prerequisites
+- AWS account
+- Terraform >= 1.5
+- kubectl & awscli
+- GitHub repository with OIDC → AWS role configured
+- Domain + Route53 (for pretty MLflow & API URLs)
+
